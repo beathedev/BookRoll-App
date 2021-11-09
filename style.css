@@ -1,18 +1,10 @@
 body {
-    margin-top: 80px;
-}
-
-.logo {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    width: 340px;
+    margin-top: 40px;
 }
 
 .logo img {
     max-width: 100px;
     width: 40px;
-    height: auto;
 }
 
 .tab-pane {

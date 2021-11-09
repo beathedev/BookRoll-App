@@ -11,112 +11,131 @@
 </head>
 
 <body>
-    <center>
-        <div class="container-fluid">
+    <div class="container-fluid ">
+        <div class="col-md-12 text-center">
             <div class="row">
-                <div class="col-sm-12">
-
-                    <div class="logo">
-                        <h1>My BookRoll </h1>
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/3/31/VisualEditor_-_Icon_-_Book.svg">
-                    </div>
-                    <figure>
-                        <blockquote class="blockquote">
-                            <h2>Favorite Quotes</h2>
-                            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                            <div class="icons" style="font-size:.75em;">
-                                <i class="fa fa-step-backward"></i>
-                                <i class="fa fa-pause "></i>
-                                <i class="fa fa-play"></i>
-                                <i class="fa fa-step-forward"></i>
-                            </div>
-                        </blockquote>
-                        <figcaption class="blockquote-footer">
-                            Someone famous in <cite title="Source Title">Source Title</cite>
-                        </figcaption>
-                    </figure>
+                <!-- Topo -->
+                <div class="logo ">
+                    <h1>My BookRoll<img src="https://upload.wikimedia.org/wikipedia/commons/3/31/VisualEditor_-_Icon_-_Book.svg">
+                    </h1>
                 </div>
+                <figure>
+                    <blockquote class="blockquote">
+                        <h2>Favorite Quotes</h2>
+                        <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                    </blockquote>
+                    <figcaption class="blockquote-footer">
+                        Someone famous in <cite title="Source Title">Source Title</cite>
+                    </figcaption>
+                    <div class="icons" style="font-size:.25em;">
+                        <button type="button" class="btn btn-light">
+                            <i class="fa fa-step-backward"></i>
+                        </button>
+                        <button type="button" class="btn btn-light">
+                        <i class="fa fa-pause "></i>
+                        </button>
+                        <button type="button" class="btn btn-light">
+                        <i class="fa fa-play"></i>
+                        </button>
+                        <button type="button" class="btn btn-light">
+                        <i class="fa fa-step-forward"></i>
+                        </button>
+                    </div>
+                </figure>
             </div>
+        </div>
+        <!-- Navegação TAB -->
+        <ul class="nav nav-tabs ">
+            <li class="nav-item ">
+                <a class="nav-link active" data-bs-toggle="tab" href="#addbook">Add Book</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " data-bs-toggle="tab" href="#read">Read</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#quotes">Quotes</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#favorites">Favorites</a>
+            </li>
+        </ul>
 
-            <ul class="nav nav-tabs">
-                <li class="nav-item">
-                    <a class="nav-link " data-bs-toggle="tab" href="#cadastrar">Cadastrar</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link " data-bs-toggle="tab" href="#lidos">Lidos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-bs-toggle="tab" href="#citacoes">Citações</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-bs-toggle="tab" href="#favoritos">Favoritos</a>
-                </li>
-            </ul>
-            <div id="myTabContent" class="tab-content">
-                <div class="tab-pane fade" id="cadastrar">
+        <!-- Cadastrar -->
+
+        <div id="myTabContent" class="tab-content">
+            <div class="tab-pane fade show active" id="addbook">
+                <center>
+                    <h5>Cadastrar Livro: </h5>
                     <form>
                         <fieldset>
-                            <div class="form-group  col-sm-6 ">
-                                <div class="form-group">
-                                    <label for="exampleInputPassword1" class="form-label mt-4">Nome do Livro:
+                            <div class="form-group col-sm-6">
+                                <div class="form-group row">
+                                    <label for="" class="form-label">Title:
                                 <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Livro">
                                 </label>
-                                    <label for="exampleInputPassword1" class="form-label mt-4">Autor:
-                                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Autor">
+                                    <label for="" class="form-label">Author:
+                                    <input type="text" class="form-control" id="form-control-plaintext" placeholder="Autor">
                                     </label>
+
+
+                                    <label for="" class="form-label">Rating: 
+                                    <input type="text"  class="form-control" id="form-control-plaintext" placeholder="0 a 5" maxlength=1>
+                                </label>
+                                    <label for="" class="form-label">Date: 
+                                    <input type="datetime-local" class="form-control" id="form-control-date">
+                                    </label>
+                                    <br/>
                                 </div>
-                            </div>
-                            <div class="form-group  col-sm-6 ">
-                                <div class="form-group">
-                                    <label for="exampleInputPassword1" class="form-label mt-6">Nota: 
-                                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="0 a 5" maxlength="1">
-                                    </label>
-                                    <label for="exampleInputPassword1" class="form-label mt-2">Data: 
-                                    <input type="datetime-local" class="form-control" id="exampleInputPassword1" placeholder="0 a 5" maxlength="1">
-                                    </label>
-                                </div>
-                                <br/>
                                 <button type="submit" class="btn btn-primary">Submit</button>
+
                             </div>
-
-
                         </fieldset>
                     </form>
-                </div>
-                <div class="tab-pane fade" id="lidos">
-                    <div class="form-group  col-sm-6 ">
-                        <ul class="list-group">
-                            <h5> Lidos:</h5>
-                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                Cras justo odio
-                                <span class="badge bg-primary rounded-pill">5 ★</span>
-                            </li>
-                    </div>
-                </div>
-                <div class="tab-pane fade" id="citacoes">
-                    <div class="form-group  col-sm-6 ">
-                        <ul class="list-group">
-                            <h5> Citações:</h5>
-                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                Cras justo odio
-                                <span class="badge bg-primary rounded-pill">14</span>
-                            </li>
-                    </div>
-                </div>
-                <div class="tab-pane fade" id="favoritos">
-                    <div class="form-group  col-sm-6 ">
-                        <ul class="list-group">
-                            <h5> Favoritos:</h5>
-                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                Cras justo odio
-                                <span class="badge bg-primary rounded-pill">5 ★</span>
-                            </li>
-                    </div>
-                </div>
-
+                </center>
             </div>
-    </center>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+            <!-- Lidos -->
+            <div class="tab-pane fade" id="read">
+                <center>
+                    <div class="form-group  col-sm-6 ">
+                        <ul class="list-group">
+                            <h5> Read:</h5>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Cras justo odio
+                                <span class="badge bg-primary rounded-pill">5 ★</span>
+                            </li>
+                        </ul>
+                    </div>
+                </center>
+            </div>
+            <!-- Citações -->
+            <div class="tab-pane fade" id="quotes">
+                <center>
+                    <div class="form-group  col-sm-6 ">
+                        <ul class="list-group">
+                            <h5> Quotes:</h5>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Cras justo odio
+                                <span class="badge bg-primary rounded-pill">5 ★</span>
+                            </li>
+                        </ul>
+                    </div>
+                </center>
+            </div>
+            <!-- Favoritos -->
+            <div class="tab-pane fade" id="favorites">
+                <center>
+                    <div class="form-group  col-sm-6 ">
+                        <ul class="list-group">
+                            <h5> Favorites:</h5>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Cras justo odio
+                                <span class="badge bg-primary rounded-pill">5 ★</span>
+                            </li>
+                        </ul>
+                    </div>
+                </center>
+            </div>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 
 </html>
