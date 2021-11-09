@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="stylesheet" href="https://bootswatch.com/5/litera/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://bootswatch.com/5/journal/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
     <title>BookRoll - App</title>
 </head>
@@ -14,26 +14,36 @@
     <center>
         <div class="container-fluid">
             <div class="row">
-                <div class="logo">
-                    <h1>My BookRoll </h1> <img src="/img/logo.svg">
+                <div class="col-sm-12">
+
+                    <div class="logo">
+                        <h1>My BookRoll </h1>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/3/31/VisualEditor_-_Icon_-_Book.svg">
+                    </div>
+                    <figure>
+                        <blockquote class="blockquote">
+                            <h2>Favorite Quotes</h2>
+                            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                            <div class="icons" style="font-size:.75em;">
+                                <i class="fa fa-step-backward"></i>
+                                <i class="fa fa-pause "></i>
+                                <i class="fa fa-play"></i>
+                                <i class="fa fa-step-forward"></i>
+                            </div>
+                        </blockquote>
+                        <figcaption class="blockquote-footer">
+                            Someone famous in <cite title="Source Title">Source Title</cite>
+                        </figcaption>
+                    </figure>
                 </div>
-                <figure>
-                    <blockquote class="blockquote">
-                        <h2>Favorite Quotes</h2>
-                        <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                    </blockquote>
-                    <figcaption class="blockquote-footer">
-                        Someone famous in <cite title="Source Title">Source Title</cite>
-                    </figcaption>
-                </figure>
             </div>
 
             <ul class="nav nav-tabs">
                 <li class="nav-item">
-                    <a class="nav-link" data-bs-toggle="tab" href="#cadastrar">Cadastrar</a>
+                    <a class="nav-link " data-bs-toggle="tab" href="#cadastrar">Cadastrar</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" data-bs-toggle="tab" href="#lidos">Lidos</a>
+                    <a class="nav-link " data-bs-toggle="tab" href="#lidos">Lidos</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" data-bs-toggle="tab" href="#citacoes">Citações</a>
@@ -51,12 +61,25 @@
                                     <label for="exampleInputPassword1" class="form-label mt-4">Nome do Livro:
                                 <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Livro">
                                 </label>
-                                    <label for="exampleInputPassword1" class="form-label mt-4">Nota: 
-                                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="0 a 5" maxlength="1">
-                                </label>
-                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <label for="exampleInputPassword1" class="form-label mt-4">Autor:
+                                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Autor">
+                                    </label>
                                 </div>
                             </div>
+                            <div class="form-group  col-sm-6 ">
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1" class="form-label mt-6">Nota: 
+                                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="0 a 5" maxlength="1">
+                                    </label>
+                                    <label for="exampleInputPassword1" class="form-label mt-2">Data: 
+                                    <input type="datetime-local" class="form-control" id="exampleInputPassword1" placeholder="0 a 5" maxlength="1">
+                                    </label>
+                                </div>
+                                <br/>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+
+
                         </fieldset>
                     </form>
                 </div>
@@ -66,7 +89,7 @@
                             <h5> Lidos:</h5>
                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                 Cras justo odio
-                                <span class="badge bg-primary rounded-pill">14</span>
+                                <span class="badge bg-primary rounded-pill">5 ★</span>
                             </li>
                     </div>
                 </div>
@@ -86,7 +109,7 @@
                             <h5> Favoritos:</h5>
                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                 Cras justo odio
-                                <span class="badge bg-primary rounded-pill">14</span>
+                                <span class="badge bg-primary rounded-pill">5 ★</span>
                             </li>
                     </div>
                 </div>
