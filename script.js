@@ -25,7 +25,7 @@ class Quote {
 
 
 
-class Store {
+class storeBooks {
     static getBooks() {
         let books;
         if (localStorage.getItem('books') === null) {
@@ -37,11 +37,17 @@ class Store {
     }
 
     static addBook(book) {
-        const books = Store.getBooks();
+        const books = storeBooks.getBooks();
         books.push(book);
         localStorage.setItem('books', JSON.stringify(books));
     }
 
+    static removeBook(book) {
+
+    }
+}
+
+class storeQuotes {
     static getQuotes() {
         let quotes;
         if (localStorage.getItem('quotes') === null) {
@@ -53,25 +59,25 @@ class Store {
     }
 
     static addQuotes(quote) {
-        const quotes = Store.getQuotes();
+        const quotes = storeQuotes.getQuotes();
         quotes.push(quote);
         localStorage.setItem('quotes', JSON.stringify(quotes));
     }
-
 }
 
 class PageUI {
     static displayBooks() {
-        const books = Store.getBooks();
+        const books = storeBooks.getBooks();
         const CSSClass = ['list-group-item', 'd-flex', 'justify-content-between', 'align-items-center'];
         books.forEach(book => {
             const listUL = document.getElementById('list-allbooks');
             const listLI = document.createElement('li');
             listLI.innerHTML = `
-            <div class="col-md-10">
+            <div class="col-sm-10" style="font-size: 12px">
             <strong>${book.title} - ${book.author}. (${book.date})</strong>
             </div>
             <div class="col-sm-2">
+            <button class="btn badge bg-primary rounded-pill"> - </button> 
             <span class="badge bg-primary rounded-pill">${book.rating}★</span> 
             <button type="button" class="btn badge bg-primary rounded-pill" id="fav" >♥</button>
             </div>
@@ -84,7 +90,7 @@ class PageUI {
     }
 
     static displayQuotes() {
-        const quotes = Store.getQuotes();
+        const quotes = storeQuotes.getQuotes();
         const CSSClass = ['list-group-item', 'd-flex', 'justify-content-between', 'align-items-center'];
         quotes.forEach(quote => {
             const listULQuote = document.getElementById('list-allquotes');
@@ -104,7 +110,7 @@ class PageUI {
 
     static randomQuote() {
         // Catch all Quotes
-        const quotes = Store.getQuotes();
+        const quotes = storeQuotes.getQuotes();
         const blockquote = document.getElementById('blockquote');
         const figcaption = document.getElementById('figcaption');
 
@@ -140,7 +146,7 @@ formBook.addEventListener('submit', (e) => {
 
     // const date = document.querySelector('#inputDate').value;
     const book = new Book(title, author, rating, date);
-    Store.addBook(book);
+    storeBooks.addBook(book);
 });
 
 
@@ -150,7 +156,7 @@ formQuote.addEventListener('submit', (e) => {
     const author = document.getElementById('inputAuthorQuote').value;
     const inputQuote = document.getElementById('inputQuote').value;
     const quote = new Quote(title, author, inputQuote);
-    Store.addQuotes(quote);
+    storeQuotes.addQuotes(quote);
 });
 
 const init = () => {

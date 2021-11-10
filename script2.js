@@ -30,9 +30,7 @@ class UI {
     }
 
     static deleteBook(el) {
-        if (el.classList.contains('delete')) {
-            el.parentElement.parentElement.remove();
-        }
+
     }
 
     static showAlert(message, className) {

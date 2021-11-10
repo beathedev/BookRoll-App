@@ -18,8 +18,3 @@ body {
 #fav:focus {
     color: red;
 }
-
-blockquote,
-figcaption {
-    transition: all ease-in-out 5s;
-}
