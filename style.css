@@ -18,3 +18,7 @@ body {
 #fav:focus {
     color: red;
 }
+
+.inactive {
+    display: none;
+}
