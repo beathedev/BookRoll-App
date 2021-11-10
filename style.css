@@ -19,6 +19,7 @@ body {
     color: red;
 }
 
-.inactive {
-    display: none;
+blockquote,
+figcaption {
+    transition: all ease-in-out 5s;
 }

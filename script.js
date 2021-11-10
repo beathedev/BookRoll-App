@@ -101,26 +101,30 @@ class PageUI {
         });
     }
 
-    static displayQuoteSlider() {
-        const quotes = Store.getQuotes();
-        quotes.forEach(quote => {
-            const blockquote = document.getElementById('blockquote');
-            const pSlide = document.createElement('p');
-            pSlide.innerHTML = quote.quotePhrase
-            blockquote.appendChild(pSlide)
-            pSlide.classList.add('quoteDisplay')
-            pSlide.style.display = 'none';
-        })
-    }
 
     static randomQuote() {
         // Catch all Quotes
         const quotes = Store.getQuotes();
-        // Append Child Id
         const blockquote = document.getElementById('blockquote');
-        let random = quotes[Math.floor(Math.random() * quotes.length)];
-        console.log(random);
-        blockquote.innerHTML = `"${random.quotePhrase}"`;
+        const figcaption = document.getElementById('figcaption');
+
+        console.log(quotes);
+        if (quotes == 0) {
+            blockquote.innerHTML = `No quotes found :(`;
+        } else {
+            setInterval(() => {
+
+                let random = quotes[Math.floor(Math.random() * quotes.length)];
+                console.log(random);
+                blockquote.innerHTML = `
+                "${random.quotePhrase}."
+                `;
+                figcaption.innerHTML = `
+                ${random.author}, <cite title="Source Title">${random.title}</cite>
+                `;
+            }, 2000);
+        }
+
     }
 
 
@@ -152,8 +156,7 @@ formQuote.addEventListener('submit', (e) => {
 const init = () => {
     PageUI.displayBooks();
     PageUI.displayQuotes();
-    PageUI.displayQuoteSlider();
-    setInterval(PageUI.randomQuote(), 100);
-
+    PageUI.randomQuote();
 }
+
 init()
