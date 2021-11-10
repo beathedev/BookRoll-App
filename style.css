@@ -1,5 +1,5 @@
 body {
-    margin-top: 40px;
+    margin: 55px;
 }
 
 .logo img {
@@ -9,4 +9,12 @@ body {
 
 .tab-pane {
     padding: 20px;
+}
+
+#fav {
+    transition: all ease 0.2s;
+}
+
+#fav:focus {
+    color: red;
 }

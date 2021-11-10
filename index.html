@@ -11,11 +11,11 @@
 </head>
 
 <body>
-    <div class="container-fluid ">
+    <div class="container-fluid">
         <div class="col-md-12 text-center">
             <div class="row">
                 <!-- Topo -->
-                <div class="logo ">
+                <div class="logo sticky">
                     <h1>My BookRoll<img src="https://upload.wikimedia.org/wikipedia/commons/3/31/VisualEditor_-_Icon_-_Book.svg">
                     </h1>
                 </div>
@@ -50,7 +50,10 @@
                 <a class="nav-link active" data-bs-toggle="tab" href="#addbook">Add Book</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link " data-bs-toggle="tab" href="#read">Read</a>
+                <a class="nav-link" data-bs-toggle="tab" href="#allbooks">All Books</a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link" data-bs-toggle="tab" href="#addquote">Add Quote</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" data-bs-toggle="tab" href="#quotes">Quotes</a>
@@ -60,29 +63,28 @@
             </li>
         </ul>
 
-        <!-- Cadastrar -->
-
+        <!-- Add Book -->
         <div id="myTabContent" class="tab-content">
             <div class="tab-pane fade show active" id="addbook">
                 <center>
-                    <h5>Cadastrar Livro: </h5>
-                    <form>
+                    <h5>Add New Book </h5>
+                    <form id="form1">
                         <fieldset>
                             <div class="form-group col-sm-6">
                                 <div class="form-group row">
                                     <label for="" class="form-label">Title:
-                                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Livro">
+                                <input type="text" class="form-control" id="inputTitle" placeholder="Title">
                                 </label>
                                     <label for="" class="form-label">Author:
-                                    <input type="text" class="form-control" id="form-control-plaintext" placeholder="Autor">
+                                    <input type="text" class="form-control" id="inputAuthor" placeholder="Author">
                                     </label>
 
 
                                     <label for="" class="form-label">Rating: 
-                                    <input type="text"  class="form-control" id="form-control-plaintext" placeholder="0 a 5" maxlength=1>
+                                    <input type="text"  class="form-control" id="inputRating" placeholder="0 a 5" maxlength=1>
                                 </label>
-                                    <label for="" class="form-label">Date: 
-                                    <input type="datetime-local" class="form-control" id="form-control-date">
+                                    <label for="" class="form-label">Date Finished: 
+                                    <input type="date" class="form-control" id="inputDate">
                                     </label>
                                     <br/>
                                 </div>
@@ -93,35 +95,55 @@
                     </form>
                 </center>
             </div>
-            <!-- Lidos -->
-            <div class="tab-pane fade" id="read">
+            <!-- All Books -->
+            <div class="tab-pane fade" id="allbooks">
                 <center>
                     <div class="form-group  col-sm-6 ">
-                        <ul class="list-group">
-                            <h5> Read:</h5>
-                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                Cras justo odio
-                                <span class="badge bg-primary rounded-pill">5 ★</span>
-                            </li>
+                        <h5> All Books: </h5>
+                        <ul class="list-group" id="list-allbooks">
                         </ul>
                     </div>
                 </center>
             </div>
-            <!-- Citações -->
+            <!-- Add New Quote -->
+            <div class="tab-pane fade" id="addquote">
+                <center>
+                    <h5>Add New Quote </h5>
+                    <form id="form2">
+                        <fieldset>
+                            <div class="form-group col-sm-6">
+                                <div class="form-group row">
+                                    <label for="" class="form-label">Title:
+                                    <input type="text" class="form-control" id="inputTitleQuote" placeholder="Title">
+                                    </label>
+                                    <label for="" class="form-label">Author:
+                                        <input type="text" class="form-control" id="inputAuthorQuote" placeholder="Author">
+                                        </label>
+                                    <label for="" class="form-label">Quote: 
+                                            <textarea class="form-control" id="inputQuote" rows="3" placeholder="Your Quote goes here..."></textarea>
+                                        </label>
+                                    <br/>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </fieldset>
+                    </form>
+                </center>
+            </div>
+
+
+            <!-- Quotes -->
             <div class="tab-pane fade" id="quotes">
                 <center>
                     <div class="form-group  col-sm-6 ">
-                        <ul class="list-group">
+                        <ul class="list-group" id="list-allquotes">
                             <h5> Quotes:</h5>
-                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                Cras justo odio
-                                <span class="badge bg-primary rounded-pill">5 ★</span>
-                            </li>
+
                         </ul>
                     </div>
                 </center>
             </div>
-            <!-- Favoritos -->
+            <!-- Favorites -->
             <div class="tab-pane fade" id="favorites">
                 <center>
                     <div class="form-group  col-sm-6 ">
@@ -135,6 +157,7 @@
                     </div>
                 </center>
             </div>
+            <script src="script.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 
