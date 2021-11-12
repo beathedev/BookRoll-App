@@ -72,18 +72,18 @@
                             <div class="form-group col-sm-6">
                                 <div class="form-group row">
                                     <label for="" class="form-label">Title:
-                                <input type="text" class="form-control" id="inputTitle" placeholder="Title">
+                                <input type="text" class="form-control" id="inputTitle" placeholder="Title" required>
                                 </label>
                                     <label for="" class="form-label">Author:
-                                    <input type="text" class="form-control" id="inputAuthor" placeholder="Author">
+                                    <input type="text" class="form-control" id="inputAuthor" placeholder="Author" required>
                                     </label>
 
 
                                     <label for="" class="form-label">Rating: 
-                                    <input type="text"  class="form-control" id="inputRating" placeholder="0 a 5" maxlength=1>
+                                    <input type="number"  class="form-control" id="inputRating" placeholder="0 a 5" maxlength=1 required>
                                 </label>
                                     <label for="" class="form-label">Date Finished: 
-                                    <input type="date" class="form-control" id="inputDate">
+                                    <input type="date" class="form-control" id="inputDate" required>
                                     </label>
                                     <br/>
                                 </div>
@@ -113,16 +113,17 @@
                             <div class="form-group col-sm-6">
                                 <div class="form-group row">
                                     <label for="" class="form-label">Title:
-                                    <input type="text" class="form-control" id="inputTitleQuote" placeholder="Title">
+                                    <input type="text" class="form-control" id="inputTitleQuote" placeholder="Title" required>
                                     </label>
                                     <label for="" class="form-label">Author:
-                                        <input type="text" class="form-control" id="inputAuthorQuote" placeholder="Author">
+                                        <input type="text" class="form-control" id="inputAuthorQuote" placeholder="Author" required>
                                         </label>
                                     <label for="" class="form-label">Quote: 
-                                            <textarea class="form-control" id="inputQuote" rows="3" placeholder="Your Quote goes here..."></textarea>
+                                            <textarea class="form-control" id="inputQuote" rows="3" placeholder="Your Quote goes here..." required></textarea>
                                         </label>
                                     <br/>
                                 </div>
+
                                 <button type="submit" class="btn btn-primary">Submit</button>
                             </div>
                         </fieldset>
@@ -135,8 +136,9 @@
             <div class="tab-pane fade" id="quotes">
                 <center>
                     <div class="form-group  col-sm-6 ">
+                        <h5> Quotes:</h5>
                         <ul class="list-group" id="list-allquotes">
-                            <h5> Quotes:</h5>
+
 
                         </ul>
                     </div>

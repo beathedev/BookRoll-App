@@ -1,5 +1,8 @@
 const formBook = document.getElementById('form1');
 const formQuote = document.getElementById('form2');
+const listUL = document.getElementById('list-allbooks');
+const listULQuote = document.getElementById('list-allquotes');
+
 var buttonNumber = 0;
 // Set today date as a default.
 document.getElementById('inputDate').valueAsDate = new Date();
@@ -67,8 +70,8 @@ class PageUI {
     static displayBooks() {
         const books = storeBooks.getBooks();
         const CSSClass = ['list-group-item', 'd-flex', 'justify-content-between', 'align-items-center'];
+        if (books.length === 0) { listUL.innerHTML = `No books found :(` }
         books.forEach(book => {
-            const listUL = document.getElementById('list-allbooks');
             const listLI = document.createElement('li');
             buttonNumber = buttonNumber + 1;
             listLI.innerHTML = `
@@ -111,6 +114,7 @@ class PageUI {
     static displayFavorite(book, button) {
 
         if (book.favorite === 1) {
+            console.log(book.title);
             button.style.color = 'red';
 
         }
@@ -135,8 +139,8 @@ class PageUI {
     static displayQuotes() {
         const quotes = storeQuotes.getQuotes();
         const CSSClass = ['list-group-item', 'd-flex', 'justify-content-between', 'align-items-center'];
+        if (quotes.length === 0) { listULQuote.innerHTML = `No quotes found :(` }
         quotes.forEach(quote => {
-            const listULQuote = document.getElementById('list-allquotes');
             const listLIQuote = document.createElement('li');
             listLIQuote.innerHTML = ` 
             <div class="col-md-10">
@@ -183,10 +187,13 @@ formBook.addEventListener('submit', (e) => {
     const author = document.getElementById('inputAuthor').value;
     const rating = document.getElementById('inputRating').value;
     const date = document.getElementById('inputDate').value;
-
-    // const date = document.querySelector('#inputDate').value;
-    const book = new Book(title, author, rating, date);
-    storeBooks.addBook(book);
+    if (rating > 5) {
+        alert("The maximum rating is 5");
+    } else {
+        const book = new Book(title, author, rating, date);
+        storeBooks.addBook(book);
+        document.location.reload(true);
+    }
 });
 
 
@@ -195,8 +202,11 @@ formQuote.addEventListener('submit', (e) => {
     const title = document.getElementById('inputTitleQuote').value;
     const author = document.getElementById('inputAuthorQuote').value;
     const inputQuote = document.getElementById('inputQuote').value;
+
     const quote = new Quote(title, author, inputQuote);
     storeQuotes.addQuotes(quote);
+    document.location.reload(true);
+
 });
 
 
