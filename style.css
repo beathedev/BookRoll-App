@@ -15,6 +15,6 @@ body {
     transition: all ease 0.2s;
 }
 
-#fav:focus {
+.red {
     color: red;
 }

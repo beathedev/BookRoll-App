@@ -1,16 +1,18 @@
 const formBook = document.getElementById('form1');
 const formQuote = document.getElementById('form2');
+var buttonNumber = 0;
 // Set today date as a default.
 document.getElementById('inputDate').valueAsDate = new Date();
 
 
 // Book Class: Represents a Book
 class Book {
-    constructor(title, author, rating, date) {
+    constructor(title, author, rating, date, favorite) {
         this.title = title;
         this.author = author;
         this.rating = rating;
         this.date = date;
+        this.favorite = 0;
     }
 }
 
@@ -21,8 +23,6 @@ class Quote {
         this.quotePhrase = quotePhrase;
     }
 }
-
-
 
 
 class storeBooks {
@@ -42,9 +42,6 @@ class storeBooks {
         localStorage.setItem('books', JSON.stringify(books));
     }
 
-    static removeBook(book) {
-
-    }
 }
 
 class storeQuotes {
@@ -65,6 +62,7 @@ class storeQuotes {
     }
 }
 
+
 class PageUI {
     static displayBooks() {
         const books = storeBooks.getBooks();
@@ -72,21 +70,66 @@ class PageUI {
         books.forEach(book => {
             const listUL = document.getElementById('list-allbooks');
             const listLI = document.createElement('li');
+            buttonNumber = buttonNumber + 1;
             listLI.innerHTML = `
             <div class="col-sm-10" style="font-size: 12px">
             <strong>${book.title} - ${book.author}. (${book.date})</strong>
             </div>
             <div class="col-sm-2">
             <button class="btn badge bg-primary rounded-pill"> - </button> 
-            <span class="badge bg-primary rounded-pill">${book.rating}★</span> 
-            <button type="button" class="btn badge bg-primary rounded-pill" id="fav" >♥</button>
-            </div>
-            `;
+            <span class="badge bg-primary rounded-pill">${book.rating}★</span>  
+            <button type="button" class="btn badge bg-primary rounded-pill" id="fav${buttonNumber}" >♥</button>
+            </div>`;
             for (var i = 0, length = CSSClass.length; i < length; i++) {
                 listLI.classList.add(CSSClass[i]);
             }
             listUL.appendChild(listLI);
+            const button = document.getElementById("fav" + buttonNumber);
+            button.addEventListener('click', () => {
+                var books2 = JSON.parse(localStorage.getItem('books'));
+                for (var x = 0; x < books2.length; x++) {
+                    if (book.title === books2[x].title) {
+                        if (book.favorite === 0) {
+                            books2[x].favorite = 1;
+                            console.log(books2);
+                            break;
+                        } else {
+                            books2[x].favorite = 0;
+                            console.log(books2);
+                            break;
+                        }
+                    }
+                }
+                localStorage.setItem("books", JSON.stringify(books2));
+                document.location.reload(true);
+            })
+            this.displayFavorite(book, button);
         });
+
+    }
+
+    static displayFavorite(book, button) {
+
+        if (book.favorite === 1) {
+            button.style.color = 'red';
+
+        }
+    }
+
+
+
+    static displayFavorites() {
+        const books = storeBooks.getBooks();
+        const favorites = storeFavorites.getFavorites();
+
+        for (let index = 0; index < books.length; index++) {
+            if (favorite[index].title === book[index].title) {
+                console.log(favorite[index].title);
+                console.log(book[index].title);
+            }
+        }
+
+
     }
 
     static displayQuotes() {
@@ -113,22 +156,19 @@ class PageUI {
         const quotes = storeQuotes.getQuotes();
         const blockquote = document.getElementById('blockquote');
         const figcaption = document.getElementById('figcaption');
-
-        console.log(quotes);
         if (quotes == 0) {
             blockquote.innerHTML = `No quotes found :(`;
         } else {
             setInterval(() => {
 
                 let random = quotes[Math.floor(Math.random() * quotes.length)];
-                console.log(random);
                 blockquote.innerHTML = `
                 "${random.quotePhrase}."
                 `;
                 figcaption.innerHTML = `
                 ${random.author}, <cite title="Source Title">${random.title}</cite>
                 `;
-            }, 2000);
+            }, 30000);
         }
 
     }
@@ -158,6 +198,8 @@ formQuote.addEventListener('submit', (e) => {
     const quote = new Quote(title, author, inputQuote);
     storeQuotes.addQuotes(quote);
 });
+
+
 
 const init = () => {
     PageUI.displayBooks();
